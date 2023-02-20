@@ -36,8 +36,13 @@ public class RestMemberBoardController {
     }
     @PutMapping("/board")
     public String edit(MemberBoard memberBoard){
-        //memberBoardService.update(memberBoard);
+        memberBoardService.update(memberBoard);
         log.info("넘어온 멤버는 "+memberBoard);
         return "ok";
+    }
+    @DeleteMapping("/board/{memberboard_idx}")
+    public String delete(@PathVariable int memberboard_idx){
+        memberBoardService.delete(memberboard_idx);
+        return "삭제완료";
     }
 }

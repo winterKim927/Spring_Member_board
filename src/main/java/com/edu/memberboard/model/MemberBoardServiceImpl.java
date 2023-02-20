@@ -18,6 +18,7 @@ public class MemberBoardServiceImpl implements MemberBoardService{
 
     @Override
     public MemberBoard select(int memberboard_idx) {
+        mapper.updateHit(memberboard_idx);
         return mapper.select(memberboard_idx);
     }
 

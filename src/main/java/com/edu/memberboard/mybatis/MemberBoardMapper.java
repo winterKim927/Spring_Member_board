@@ -19,6 +19,9 @@ public interface MemberBoardMapper {
     @Update("update memberboard set title = #{title}, writer= #{writer}, content = #{content} where memberboard_idx = #{memberboard_idx}")
     public void update(MemberBoard memberBoard);
 
-    @Delete("delete memberboard where memberboard_idx = #{memberboard_idx}")
+    @Delete("delete from memberboard where memberboard_idx = #{memberboard_idx}")
     public void delete(int memberboard_idx);
+
+    @Update("update memberboard set hit = hit+1 where memberboard_idx=#{memberboard_idx}")
+    public void updateHit(int memberboard_idx);
 }
