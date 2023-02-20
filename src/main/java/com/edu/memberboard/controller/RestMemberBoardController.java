@@ -34,4 +34,10 @@ public class RestMemberBoardController {
         memberBoardService.insert(memberBoard);
         return "ok";
     }
+    @PutMapping("/board")
+    public String edit(MemberBoard memberBoard){
+        //memberBoardService.update(memberBoard);
+        log.info("넘어온 멤버는 "+memberBoard);
+        return "ok";
+    }
 }
