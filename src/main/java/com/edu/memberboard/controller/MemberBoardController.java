@@ -18,11 +18,18 @@ public class MemberBoardController {
     @Autowired
     MemberBoardService memberBoardService;
     Logger log = LoggerFactory.getLogger(getClass().getName());
+    @GetMapping("/")
+    public String getMain(){
+        return "index";
+    }
+
     @GetMapping("/list")
-    @ResponseBody
-    public List getList(){
-        log.info("겟리스트 작동함");
-        List<MemberBoard> memberBoardList = memberBoardService.selectAll();
-        return memberBoardList;
+    public String goList(){
+        return "list";
+    }
+
+    @GetMapping("/write")
+    public String goWrite(){
+        return "writeform";
     }
 }

@@ -1,5 +1,6 @@
 <template>
   <div class="container mt-3">
+    <span>{{BoardList}}</span>
     <h2>게시판</h2>
     <table class="table mt-3 border">
       <thead class="thead-dark">
@@ -12,13 +13,10 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td colspan="5">
-          <button type="button" class="btn btn-warning" id="writeNews">글쓰기</button>
-        </td>
-      </tr>
+        <Row/>
       </tbody>
     </table>
+    <button type="button" class="btn btn-warning" id="writeNews">글쓰기</button>
     <div class="row" style="float: right">
       <div class="input-group mb-3">
         <select class="input-group-text" id="category">
@@ -33,12 +31,21 @@
 </template>
 
 <script>
+let boardList = [];
+
+import Row from './Row.vue'
+import $ from 'jquery'
 export default {
   name: 'MemberBoard',
   props: {
-    msg: String
+    BoardList : Array
+  },
+  components: {
+    Row
   }
 }
+
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

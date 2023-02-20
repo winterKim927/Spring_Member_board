@@ -15,4 +15,24 @@ public class MemberBoardServiceImpl implements MemberBoardService{
         List<MemberBoard> memberList = mapper.selectAll();
         return memberList;
     }
+
+    @Override
+    public MemberBoard select(int memberboard_idx) {
+        return mapper.select(memberboard_idx);
+    }
+
+    @Override
+    public void insert(MemberBoard memberBoard) {
+        mapper.insert(memberBoard);
+    }
+
+    @Override
+    public void update(MemberBoard memberBoard) {
+        mapper.update(memberBoard);
+    }
+
+    @Override
+    public void delete(int memberboard_idx) {
+        mapper.delete(memberboard_idx);
+    }
 }
