@@ -1,4 +1,4 @@
-package com.edu.memberboard.model;
+package com.edu.memberboard.model.MemberBoard;
 
 import com.edu.memberboard.domain.MemberBoard;
 import com.edu.memberboard.mybatis.MemberBoardMapper;

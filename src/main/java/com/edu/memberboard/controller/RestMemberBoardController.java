@@ -1,11 +1,15 @@
 package com.edu.memberboard.controller;
 
+import com.edu.memberboard.domain.Member;
 import com.edu.memberboard.domain.MemberBoard;
-import com.edu.memberboard.model.MemberBoardService;
+import com.edu.memberboard.model.Member.MemberService;
+import com.edu.memberboard.model.MemberBoard.MemberBoardService;
+import com.edu.memberboard.util.Msg;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +20,8 @@ import java.util.List;
 public class RestMemberBoardController {
     @Autowired
     MemberBoardService memberBoardService;
+    @Autowired
+    private MemberService memberService;
     Logger log = LoggerFactory.getLogger(getClass().getName());
     @GetMapping("/board")
     public List getList() {
@@ -37,7 +43,7 @@ public class RestMemberBoardController {
     @PutMapping("/board")
     public String edit(MemberBoard memberBoard){
         memberBoardService.update(memberBoard);
-        log.info("넘어온 멤버는 "+memberBoard);
+        log.info("넘어온 수정글 "+memberBoard);
         return "ok";
     }
     @DeleteMapping("/board/{memberboard_idx}")

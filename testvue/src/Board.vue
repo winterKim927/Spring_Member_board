@@ -1,5 +1,5 @@
 <template>
-  <MemberBoard :BoardList="BoardList"/>
+  <MemberBoard :BoardList="boardList"/>
 </template>
 
 <script>
@@ -15,9 +15,6 @@ export default {
   },
   components: {
     MemberBoard
-  },
-  created:{
-    this.getList()
   },
   methods: {
     getList () {
