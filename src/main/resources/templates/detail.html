@@ -22,6 +22,17 @@
       })
     }
 
+    function del(){
+      $.ajax({
+        type:"delete",
+        url:"/rest/board/"+$("#idx").val(),
+        success : function (result) {
+          alert(result);
+          location.href="/list";
+        }
+      })
+    }
+
     $(function() {
       $("#bt_edit").click(function() { //수정버튼
         edit();
@@ -29,7 +40,7 @@
 
       $("#bt_delete").click(function() { //삭제버튼
         if (confirm("삭제할까요?")) {
-
+          del();
         }
       });
 
@@ -47,7 +58,7 @@
       <h2>상세보기</h2>
       <p></p>
       <form id="form1">
-        <input type="hidden" name="memberboard_idx" th:value="${memberboard.memberboard_idx}">
+        <input type="hidden" name="memberboard_idx" id="idx" th:value="${memberboard.memberboard_idx}">
         <div class="form-group">
           <label for="title">제목</label>
           <input type="text" class="form-control" id="title" name="title" th:value="${memberboard.title}">
@@ -58,7 +69,7 @@
         </div>
         <div class="form-group">
           <label for="content">내용</label>
-          <textarea class="form-control" id="content" name="content" th:value="${memberboard.content}"></textarea>
+          <textarea class="form-control" id="content" name="content" th:text="${memberboard.content}"></textarea>
         </div>
         <div class="form-group mt-3">
           <button type="button" class="btn btn-warning" id="bt_edit">수정</button>
